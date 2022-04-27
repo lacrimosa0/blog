@@ -13,11 +13,13 @@ from flask_gravatar import Gravatar
 from flask_login import LoginManager
 from functools import wraps
 from flask import abort
-
+import os
+from dotenv import load_dotenv
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+load_dotenv("C:/Users/USER/Desktop/keys/day-69-blog/.env.txt")
+app.config['SECRET_KEY'] = os.getenv("secret_key ")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
